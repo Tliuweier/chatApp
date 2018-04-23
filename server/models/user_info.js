@@ -72,6 +72,11 @@ let addAsFriend = function (user_id,other_user_id,time) {
   return query(_sql,[user_id,other_user_id,time]);
 }
 
+let insertData = function(value){
+  const _sql ='insert into user_info(name,password,initial) values(?,?,?);'
+  return query(_sql,value)
+}
+
 
 module.exports = {
   findDataByName,
@@ -79,5 +84,6 @@ module.exports = {
   isFriend,
   findByID,
   findContact,
-  addAsFriend
+  addAsFriend,
+  insertData
 }

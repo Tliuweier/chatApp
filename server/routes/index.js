@@ -1,6 +1,7 @@
 var router = require('koa-router')();
 var baseApi = require('../config').baseApi;
 var login = require('../controllers/login');
+var register = require('../controllers/register')
 var userInfo = require('../controllers/userInfo');
 var verify = require('../middlewares/verify');
 var privateChat = require('../controllers/privateChat')
@@ -9,6 +10,7 @@ var newFriends = require('../controllers/newfriends')
 router.prefix(`/${baseApi}`)
 router
   .post('/login',login)
+  .post('/register',register)
   .get('/message',verify,message)
   .get('/user_info',verify,userInfo.findByID)
   .get('/find_user',verify,userInfo.findUIByName)

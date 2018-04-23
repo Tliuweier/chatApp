@@ -91,12 +91,18 @@
     },
     methods:{
       register(){
+
+        var initial = makePy(this.name.trim());
+
+        var arr = initial[0].split("",1)
         if(this.name !=="" && this.password !==""){
           axios.post("/api/t1/register",
-            {name:this.name, password : this.password}).then(res=>{
+            {name:this.name, password : this.password,initial:arr}).then(res=>{
             if(res.data.success){
+              alert(res.data.message)
+              this.$router.push('/login')
             }else{
-              alert("err")
+              alert(res.data.message)
             }
           }).catch(err=>{
             console.log(err)
