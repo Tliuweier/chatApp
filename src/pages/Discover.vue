@@ -1,5 +1,5 @@
 <template>
-  <div id="Discover">
+  <div id="Discover" @click="MenuOutsideClick">
     <theader1 :totalnum="totalnumGetter"></theader1>
     <div style="padding-top: 45px">
       <div class="weui-cells" @click="toMoments">
@@ -57,6 +57,7 @@
 <style lang="scss" scoped>
 
   #Discover{
+    padding-bottom: 60px;
     .weui-cell__ft img {
       height: 25px;
       vertical-align: middle;
@@ -104,6 +105,22 @@
       this.path = this.$router.history.current.path;
     },
     methods:{
+      MenuOutsideClick(e){
+
+//        console.log(e.target.className);
+        if(e.target.className === 'iconfont icon-tips-jia'){
+          e.stopPropagation();
+          $('#menu').removeClass("tips-close");
+          $('#menu').attr({'class':'tips-open tips-menu'});
+
+        }else{
+          e.stopPropagation();
+//          event.stopPropagation();
+          $('#menu').removeClass("tips-open");
+          $('#menu').attr({'class':'tips-close tips-menu'});
+
+        }
+      },
       toMoments(){
         this.$router.push("/moments");
       },

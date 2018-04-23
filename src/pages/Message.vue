@@ -1,5 +1,5 @@
 <template>
-  <div id="message">
+  <div id="message" @click="MenuOutsideClick">
     <theader1 :totalnum="totalnumGetter"></theader1>
     <div style="padding-top: 45px;">
       <div v-for="item in msgListGetter">
@@ -250,6 +250,21 @@
       ])
     },
     methods:{
+      MenuOutsideClick(e){
+
+//       console.log(e.target.className);
+       if(e.target.className === 'iconfont icon-tips-jia'){
+
+        $('#menu').removeClass("tips-close");
+        $('#menu').attr({'class':'tips-open tips-menu'});
+
+       }else{
+//         console.log(123)
+         $('#menu').removeClass("tips-open");
+         $('#menu').attr({'class':'tips-close tips-menu'});
+
+       }
+      },
       getMsgBySocket(){
         socket.removeAllListeners('getPrivateMsg');
         socket.on('getPrivateMsg', (data) => {

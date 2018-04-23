@@ -1,5 +1,5 @@
 <template>
-  <div id="Me">
+  <div id="Me" @click="MenuOutsideClick">
     <theader1 :path="path" :totalnum="totalnumGetter"></theader1>
     <div class="weui-tab__content" style="display: block; padding-top: 50px">
       <div class="weui-cells">
@@ -71,6 +71,7 @@
 <style lang="scss" scoped>
 
   #Me {
+    padding-bottom: 60px;
     .weui-cell__ft img {
       height: 25px;
       vertical-align: middle;
@@ -174,6 +175,21 @@
       console.log(this.path);
     },
     methods:{
+      MenuOutsideClick(e){
+
+//        console.log(e.target.className);
+        if(e.target.className === 'iconfont icon-tips-jia'){
+
+          $('#menu').removeClass("tips-close");
+          $('#menu').attr({'class':'tips-open tips-menu'});
+
+        }else{
+//          console.log(123)
+          $('#menu').removeClass("tips-open");
+          $('#menu').attr({'class':'tips-close tips-menu'});
+
+        }
+      },
       toPhoto(){
         this.$router.push("/Photo");
       },

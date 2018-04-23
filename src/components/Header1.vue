@@ -29,7 +29,7 @@
         <span class="iconfont icon-search" style="margin-right: 40px"></span>
         <span class="iconfont icon-tips-jia" @click="clickopen"></span>
 
-        <ul class="tips-menu" :class="[state ? 'tips-open':'tips-close']">
+        <ul class="tips-menu tips-close"  id="menu">
           <li @click="launchchat">
             <span class="iconfont icon-tips-xiaoxi"></span>
             <div>发起群聊</div>

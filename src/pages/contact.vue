@@ -1,5 +1,5 @@
 <template>
-  <div id="contact">
+  <div id="contact" @click="MenuOutsideClick">
     <theader1 :path="path" :totalnum="totalnumGetter"></theader1>
     <div style="padding-top: 27px">
       <div class="weui-cells_contact-head weui-cells weui-cells_access">
@@ -123,6 +123,21 @@
 
     },
     methods:{
+      MenuOutsideClick(e){
+
+//        console.log(e.target.className);
+        if(e.target.className === 'iconfont icon-tips-jia'){
+
+          $('#menu').removeClass("tips-close");
+          $('#menu').attr({'class':'tips-open tips-menu'});
+
+        }else{
+//          event.stopPropagation();
+          $('#menu').removeClass("tips-open");
+          $('#menu').attr({'class':'tips-close tips-menu'});
+
+        }
+      },
       toPo(i){
         window.scrollTo(0,this.$refs['key_'+i][0].offsetTop)
       },
