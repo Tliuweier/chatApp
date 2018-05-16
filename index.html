@@ -13,7 +13,7 @@
     <script src="./static/socket.io.js"></script>
     <script src="./static/pinying.js"></script>
     <script>
-      var socket = io.connect('http://192.168.31.103:8083');
+      var socket = io.connect('http://localhost:8083');
       //获取本地的缓存
       var userInfo = JSON.parse(localStorage.getItem("userInfo"))
       if(userInfo){

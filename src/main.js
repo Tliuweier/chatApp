@@ -10,7 +10,7 @@ import FastClick from 'fastclick'
 Vue.config.productionTip = false
 
 FastClick.attach(document.body);
-axios.defaults.baseURL='http://192.168.31.103:8083'
+axios.defaults.baseURL='http://localhost:8083'
 //拦截器
 axios.interceptors.request.use(
   config=>{
